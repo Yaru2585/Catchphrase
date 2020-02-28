@@ -1,6 +1,7 @@
 import glob
 import os
 import sys
+import re
 
 
 def startreading():
@@ -23,7 +24,7 @@ def read(path, file, target):
     openfile = open(file, 'r')
     lines = openfile.readlines()
     for line in lines:
-        if target in line:
+        if re.search(target,line,re.IGNORECASE):
             saveline(line)
         print(line.strip())
     openfile.close()
